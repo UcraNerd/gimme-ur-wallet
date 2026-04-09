@@ -43,7 +43,7 @@ public class View extends JFrame {
 	 */
 	public View() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1308, 784);
+		setBounds(100, 100, 1323, 784);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -51,7 +51,7 @@ public class View extends JFrame {
 
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setIcon(new ImageIcon(View.class.getResource("/imgs/background.png")));
-		lblBackground.setBounds(0, 0, 1308, 784);
+		lblBackground.setBounds(0, 0, 1323, 784);
 		contentPane.add(lblBackground);
 
 		lblBlackJack1 = new JLabel("bj1");
