@@ -12,7 +12,7 @@ import gimmeurwallet.model.Card;
  * Gestisce il disegno delle carte, i pulsanti di controllo e i dialoghi di stato.
  */
 public class BJView extends JFrame {
-    private JPanel contentPane;
+    private final JPanel contentPane;
     private JLabel playerScoreLabel, dealerScoreLabel;
     private JButton btnHit, btnStay, btnStart;
     private JButton[] betButtons;
