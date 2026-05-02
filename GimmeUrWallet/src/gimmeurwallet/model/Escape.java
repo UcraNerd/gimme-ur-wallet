@@ -9,7 +9,7 @@ import java.util.concurrent.Semaphore;
  * ma garantisce l'accesso esclusivo ai thread che modificano il saldo.
  */
 public class Escape {
-    private final double moneyNeeded = 100000;
+    private final double moneyNeeded = 300000;
     private double wallet;
     
     private int readersCount = 0;
@@ -106,13 +106,4 @@ public class Escape {
         
         return reached;
     }
-}package gimmeurwallet.model;
-
-public class Escape {
-	private final double moneyNeeded = 100000;
-	private double wallet;
-	
-	public Escape() {
-		this.wallet = 3000;
-	}
 }
