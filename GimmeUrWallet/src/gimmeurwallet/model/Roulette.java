@@ -7,8 +7,8 @@ import java.util.Map;
  * Rappresenta la logica di gioco della Roulette, gestendo le puntate e il calcolo delle vincite.
  */
 public class Roulette {
-    private Map<Integer, Integer> numberBets = new HashMap<>();
-    private Map<String, Integer> externalBets = new HashMap<>();
+    private final Map<Integer, Integer> numberBets = new HashMap<>();
+    private final Map<String, Integer> externalBets = new HashMap<>();
     private boolean locked = false;
 
     /**
