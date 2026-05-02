@@ -12,9 +12,9 @@ import javax.swing.Timer;
  * Coordina le puntate, le animazioni di distribuzione e la gestione del wallet.
  */
 public class BJController {
-    private BlackJack bjModel;
-    private BJView bjView;
-    private Escape theGame;
+    private final BlackJack bjModel;
+    private final BJView bjView;
+    private final Escape theGame;
     private double currentBet = 0;
     private boolean gameStarted = false;
 
