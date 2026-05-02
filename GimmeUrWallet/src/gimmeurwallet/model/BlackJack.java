@@ -45,9 +45,7 @@ public class BlackJack {
         try {
             spriteSheet = ImageIO.read(getClass().getResourceAsStream("/imgs/ClassicCards.png"));
             backSrc = ImageIO.read(getClass().getResourceAsStream("/imgs/LightClassic.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch (IOException _) {}
 
         cardBack = new BufferedImage(CARD_WIDTH * SCALE, CARD_HEIGHT * SCALE, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g1 = cardBack.createGraphics();
@@ -93,10 +91,10 @@ public class BlackJack {
         playerHand = new ArrayList<>();
         dealerHand = new ArrayList<>();
 
-        playerHand.add(deck.remove(0));
-        dealerHand.add(deck.remove(0));
-        playerHand.add(deck.remove(0));
-        dealerHand.add(deck.remove(0));
+        playerHand.add(deck.removeFirst());
+        dealerHand.add(deck.removeFirst());
+        playerHand.add(deck.removeFirst());
+        dealerHand.add(deck.removeFirst());
     }
 
     /**
@@ -104,7 +102,7 @@ public class BlackJack {
      */
     public void playerHit() {
         if (getHandScore(playerHand) < BLACKJACK) {
-            playerHand.add(deck.remove(0));
+            playerHand.add(deck.removeFirst());
         }
     }
 
@@ -113,7 +111,7 @@ public class BlackJack {
      */
     public void dealerTurn() {
         while (getHandScore(dealerHand) < TMIN) {
-            dealerHand.add(deck.remove(0));
+            dealerHand.add(deck.removeFirst());
         }
     }
 
