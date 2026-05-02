@@ -10,10 +10,8 @@ import gimmeurwallet.controller.RTController;
  * Frame principale della Roulette che organizza i componenti della ruota e del tavolo.
  */
 public class RTView extends JFrame {
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-    private RoulettePanel roulettePanel;
-    private BettingTablePanel bettingTablePanel;
+    private final RoulettePanel roulettePanel;
+    private final BettingTablePanel bettingTablePanel;
 
     /**
      * Costruttore della vista. Configura il layout e i sotto-pannelli.
@@ -21,7 +19,7 @@ public class RTView extends JFrame {
     public RTView() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(100, 100, 950, 900);
-        contentPane = new JPanel();
+        JPanel contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(new BorderLayout(10, 10));
@@ -47,50 +45,4 @@ public class RTView extends JFrame {
 
     /** Forza il ridisegno grafico del tavolo delle puntate. */
     public void repaintTable() { bettingTablePanel.repaint(); }
-}package gimmeurwallet.view;
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import gimmeurwallet.controller.RTController;
-
-public class RTView extends JFrame {
-
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RTView frame = new RTView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public RTView() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-
-	}
-	
-	public void registerController(RTController c) {
-			
-	}
 }
