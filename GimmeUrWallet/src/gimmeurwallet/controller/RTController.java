@@ -29,7 +29,7 @@ public class RTController {
 		try {
 			double initialMoney = this.theGame.getWallet();
 			this.view.getRoulettePanel().updateWalletLabel(initialMoney);
-		} catch (InterruptedException _) {}
+		} catch (InterruptedException e) {}
 	}
 
 	/**
@@ -84,7 +84,7 @@ public class RTController {
 			double currentMoney = theGame.getWallet();
 			view.getRoulettePanel().updateWalletLabel(currentMoney);
 
-		} catch (InterruptedException _) {}
+		} catch (InterruptedException e) {}
 
 		String message = (won > 0) ?
 				"VITTORIA!\nNumero uscito: " + drawn + "\nVinto: " + balance + "€" :
