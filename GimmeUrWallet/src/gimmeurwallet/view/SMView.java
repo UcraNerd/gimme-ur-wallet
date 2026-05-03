@@ -12,6 +12,7 @@ import gimmeurwallet.controller.SMController;
  * dei risultati.
  */
 public class SMView extends JFrame {
+
 	private JPanel contentPane;
 	private JLabel reel1, reel2, reel3;
 	private JLabel resultLabel;
@@ -19,7 +20,6 @@ public class SMView extends JFrame {
 	private JLabel spinButton;
 	private ImageIcon[] symbols;
 
-	private boolean isSpinning = false;
 	private JLabel resultInfo1;
 	private JLabel resultInfo2;
 	private JLabel resultInfo3;
@@ -61,6 +61,7 @@ public class SMView extends JFrame {
 	 * Configura l'interfaccia utente e i componenti grafici.
 	 */
 	private void setupUI() {
+
 		ImageIcon backgroundIcon = new ImageIcon(getClass().getResource("/imgs/back.png"));
 		JLabel background = new JLabel(backgroundIcon);
 		background.setVerticalAlignment(SwingConstants.TOP);
@@ -170,14 +171,13 @@ public class SMView extends JFrame {
 	 * @param controller il controller incaricato di gestire la logica
 	 */
 	public void registerController(final SMController controller) {
+
 		spinButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				if (isSpinning) return;
 
-				isSpinning = true;
-				hideResult();
 				ActionEvent event = new ActionEvent(spinButton, ActionEvent.ACTION_PERFORMED, "spin");
+
 				controller.actionPerformed(event);
 			}
 		});
@@ -205,7 +205,6 @@ public class SMView extends JFrame {
 	public void setResult(String text) {
 		resultLabel.setText(text);
 		resultLabel.setVisible(true);
-		isSpinning = false;
 	}
 
 	/**
