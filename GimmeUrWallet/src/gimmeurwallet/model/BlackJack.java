@@ -45,7 +45,9 @@ public class BlackJack {
         try {
             spriteSheet = ImageIO.read(getClass().getResourceAsStream("/imgs/ClassicCards.png"));
             backSrc = ImageIO.read(getClass().getResourceAsStream("/imgs/LightClassic.png"));
-        } catch (IOException _) {}
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         cardBack = new BufferedImage(CARD_WIDTH * SCALE, CARD_HEIGHT * SCALE, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g1 = cardBack.createGraphics();
