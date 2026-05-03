@@ -50,11 +50,10 @@ public class ReelThread implements Runnable {
 
             for (int i = 0; i < SPIN_ITERATIONS; i++) {
                 lastIndex = random.nextInt(symbols.length);
-                
+
                 final int currentIndex = lastIndex;
                 SwingUtilities.invokeLater(() -> {
                     label.setIcon(symbols[currentIndex]);
-                    label.repaint();
                 });
 
                 Thread.sleep(SPIN_DELAY_MS);
