@@ -33,7 +33,11 @@ public class BJController {
 
     /** Sincronizza il saldo visualizzato con quello reale nel wallet. */
     private void refreshBalance() {
-        try { bjView.updateWallet(theGame.getWallet()); } catch (Exception _) {}
+        try {
+            bjView.updateWallet(theGame.getWallet());
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
     }
 
     /**
@@ -64,7 +68,10 @@ public class BJController {
             if (theGame.getWallet() < currentBet) return;
             theGame.removeMoney(currentBet);
             refreshBalance();
-        } catch (Exception e) { return; }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            return;
+        }
 
         gameStarted = true;
         bjView.setGamePhase(true);
@@ -149,7 +156,9 @@ public class BJController {
             if (result.contains("BLACKJACK!")) theGame.addMoney(currentBet * 2.5);
             else if (result.contains("Hai Vinto!")) theGame.addMoney(currentBet * 2);
             else if (result.contains("Pareggio")) theGame.addMoney(currentBet);
-        } catch (Exception _) {}
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
 
         bjView.showResultDialog(result, bjModel.getHandScore(bjModel.getPlayerHand()), bjModel.getHandScore(bjModel.getDealerHand()));
 
