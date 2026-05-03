@@ -21,7 +21,7 @@ public class Main {
      * 5. Rende visibile la finestra dell'applicazione.
      * * @param args Argomenti della riga di comando (non utilizzati).
      */
-    static void main() {
+public static void main(String[] args) {
         View mainView = new View();
         Escape theGame = new Escape();
         Controller controller = new Controller(theGame);
