@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html","k":"18"},{"m":"GimmeUrWallet","l":"gimmeurwallet.controller"},{"m":"GimmeUrWallet","l":"gimmeurwallet.model"},{"m":"GimmeUrWallet","l":"gimmeurwallet.view"}];updateSearchResults();

@@ -1,0 +1,4 @@
+module:GimmeUrWallet
+gimmeurwallet.controller
+gimmeurwallet.model
+gimmeurwallet.view
