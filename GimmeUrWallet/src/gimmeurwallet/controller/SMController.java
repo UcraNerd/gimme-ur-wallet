@@ -45,11 +45,16 @@ public class SMController implements ActionListener {
 	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
+
 		if (event.getActionCommand().equals("spin")) {
+
 			if (isSpinning) {
 				return;
 			}
+
 			isSpinning = true;
+
+			view.hideResult();
 
 			try {
 				model.removeMoney(10);
@@ -61,6 +66,7 @@ public class SMController implements ActionListener {
 					isSpinning = false;
 					return;
 				}
+
 			} catch (InterruptedException e) {
 				Thread.currentThread().interrupt();
 				isSpinning = false;
@@ -74,12 +80,17 @@ public class SMController implements ActionListener {
 			ReelThread thread2 = new ReelThread(view.getReel2(), symbols, semaphore);
 			ReelThread thread3 = new ReelThread(view.getReel3(), symbols, semaphore);
 
-			new Thread(thread1).start();
-			new Thread(thread2).start();
-			new Thread(thread3).start();
+			Thread t1 = new Thread(thread1);
+			Thread t2 = new Thread(thread2);
+			Thread t3 = new Thread(thread3);
+
+			t1.start();
+			t2.start();
+			t3.start();
 
 			ReelWatcher watcher = new ReelWatcher(semaphore, thread1, thread2, thread3, this);
-			new Thread(watcher).start();
+			Thread tWatcher = new Thread(watcher);
+			tWatcher.start();
 		}
 	}
 
@@ -92,6 +103,7 @@ public class SMController implements ActionListener {
 	 * @param value3 indice del simbolo ottenuto sul terzo rullo
 	 */
 	public void finishSpin(int value1, int value2, int value3) {
+
 		try {
 			if (value1 == value2 && value2 == value3) {
 				view.setResult("JACKPOT!");
@@ -109,6 +121,7 @@ public class SMController implements ActionListener {
 			if (currentBalance <= 0) {
 				JOptionPane.showMessageDialog(view, "Hai finito i soldi!");
 			}
+
 		} catch (InterruptedException e) {
 			Thread.currentThread().interrupt();
 		}
